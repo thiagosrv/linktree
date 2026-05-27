@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="PS Proteção Segurança — Links oficiais">
+  <title>PS PROTEÇÃO SEGURANÇA</title>
+
+  <!-- Fonte: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones: Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    /* ─── Reset & Base ──────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── Design Tokens ─────────────────────────────────────────────── */
+    :root {
+      --color-bg:           #FFFFFF;
+      --color-accent:       #FEBE00;
+      --color-accent-dark:  #E5AB00;
+      --color-accent-glow:  rgba(254, 190, 0, 0.40);
+      --color-navy:         #1B2A7A;
+      --color-navy-hover:   #152268;
+      --color-text:         #1A1A1A;
+      --color-muted:        #777777;
+      --color-border:       #EEEEEE;
+
+      --radius-btn:   12px;
+      --radius-card:  20px;
+      --radius-full:  9999px;
+
+      --shadow-card:  0 4px 32px rgba(0, 0, 0, 0.08);
+      --shadow-btn:   0 8px 24px var(--color-accent-glow);
+
+      --transition:   all 0.22s ease;
+
+      --font-base:    'Outfit', system-ui, sans-serif;
+    }
+
+    /* ─── Mobile: sem scroll lateral ───────────────────────────────── */
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      font-family: var(--font-base);
+      background-color: #F2F3F5;
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100dvh;
+      padding: 32px 16px 40px;
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── Animações de Entrada ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── Card Central ──────────────────────────────────────────────── */
+    .card {
+      background: var(--color-bg);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 24px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      /* Entrada do card */
+      animation: fadeIn 0.4s ease both;
+    }
+
+    /* ─── Avatar ────────────────────────────────────────────────────── */
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--color-accent);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-accent);
+      box-shadow: 0 0 0 6px rgba(254, 190, 0, 0.15);
+      flex-shrink: 0;
+      margin-bottom: 16px;
+
+      animation: fadeIn 0.5s ease 0.1s both;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-fallback {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-navy);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    /* ─── Nome ──────────────────────────────────────────────────────── */
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 5px;
+
+      animation: fadeIn 0.5s ease 0.2s both;
+    }
+
+    /* ─── Handle ────────────────────────────────────────────────────── */
+    .brand-handle {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-muted);
+      text-align: center;
+      margin-bottom: 18px;
+
+      animation: fadeIn 0.5s ease 0.25s both;
+    }
+
+    /* ─── Ícones Sociais ────────────────────────────────────────────── */
+    .socials {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+
+      animation: fadeIn 0.5s ease 0.3s both;
+    }
+
+    .socials a {
+      color: var(--color-navy);
+      font-size: 1.45rem;
+      line-height: 1;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .socials a:hover,
+    .socials a:focus-visible {
+      color: var(--color-accent);
+      background: rgba(254, 190, 0, 0.12);
+      outline: none;
+    }
+
+    .socials a:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* ─── Divisor ────────────────────────────────────────────────────── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: 22px;
+
+      animation: fadeIn 0.4s ease 0.32s both;
+    }
+
+    /* ─── Links / Botões ─────────────────────────────────────────────── */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+      color: var(--color-navy);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-base);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      gap: 8px;
+
+      /* Fade-in escalonado — aplicado via nth-child abaixo */
+      opacity: 0;
+      animation: fadeUp 0.45s ease forwards;
+    }
+
+    /* Escalonamento premium dos botões */
+    .btn:nth-child(1) { animation-delay: 0.38s; }
+    .btn:nth-child(2) { animation-delay: 0.46s; }
+    .btn:nth-child(3) { animation-delay: 0.54s; }
+    .btn:nth-child(4) { animation-delay: 0.62s; }
+    .btn:nth-child(5) { animation-delay: 0.70s; }
+    .btn:nth-child(6) { animation-delay: 0.78s; }
+    .btn:nth-child(7) { animation-delay: 0.86s; }
+    .btn:nth-child(8) { animation-delay: 0.94s; }
+
+    /* Brilho interno sutil */
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 60%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* Hover: elevação + glow dourado */
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-btn);
+      background: linear-gradient(135deg, #FFD030 0%, var(--color-accent) 100%);
+      color: var(--color-navy-hover);
+      outline: none;
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--color-accent-glow);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-navy);
+      outline-offset: 2px;
+    }
+
+    /* ─── Botão especial: Plano UNIMED ──────────────────────────────── */
+    .btn--special {
+      background: linear-gradient(135deg, var(--color-navy) 0%, #243494 100%);
+      color: var(--color-accent);
+    }
+
+    .btn--special::before {
+      background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 60%);
+    }
+
+    .btn--special:hover,
+    .btn--special:focus-visible {
+      background: linear-gradient(135deg, #243494 0%, #2e44b8 100%);
+      color: #FFD030;
+      box-shadow: 0 8px 24px rgba(27, 42, 122, 0.35);
+    }
+
+    .btn--special:hover .badge,
+    .btn--special:focus-visible .badge {
+      background: #FFD030;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--color-accent);
+      color: var(--color-navy);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* ─── Rodapé ─────────────────────────────────────────────────────── */
+    footer {
+      margin-top: 26px;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      text-align: center;
+      line-height: 1.6;
+      animation: fadeIn 0.4s ease 1s both;
+    }
+
+    footer a {
+      color: var(--color-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--color-navy);
+      text-decoration: underline;
+    }
+
+    /* ─── Responsividade Mobile ──────────────────────────────────────── */
+    @media (max-width: 430px) {
+      body {
+        padding: 20px 12px 32px;
+      }
+
+      .card {
+        padding: 32px 18px 28px;
+        border-radius: 16px;
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
+      }
+
+      .brand-name {
+        font-size: 1.05rem;
+      }
+
+      .btn {
+        font-size: 0.88rem;
+        padding: 14px 16px;
+      }
+    }
+
+    /* ─── Preferência de movimento reduzido ─────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .btn,
+      .socials a,
+      .card,
+      .avatar,
+      .brand-name,
+      .brand-handle,
+      .socials,
+      .divider,
+      footer {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+
+    <!-- ── Logo ──────────────────────────────────────────────────────── -->
+    <div class="avatar">
+      <img
+        src="logo.jpg"
+        alt="Logo PS Proteção Segurança"
+        onerror="this.style.display='none'; this.parentElement.querySelector('.avatar-fallback').style.display='flex';"
+      >
+      <span class="avatar-fallback" style="display:none;">PS</span>
+    </div>
+
+    <!-- ── Nome e Handle ─────────────────────────────────────────────── -->
+    <h1 class="brand-name">PS PROTEÇÃO SEGURANÇA</h1>
+    <p class="brand-handle">@protecao_seguranca</p>
+
+    <!-- ── Ícones Sociais ────────────────────────────────────────────── -->
+    <!-- Substitua os href pelas URLs reais dos seus perfis              -->
+    <div class="socials">
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <!-- ── Botões ────────────────────────────────────────────────────── -->
+    <nav class="links" aria-label="Links principais">
+
+      <a class="btn" href="https://wa.me/5519982892037" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Solicite um Orçamento
+      </a>
+
+      <a class="btn" href="https://www.protecaotalentos.online/" target="_blank" rel="noopener noreferrer">
+        Trabalhe na PS PROTEÇÃO
+      </a>
+
+      <a class="btn" href="https://portalprotecao.online" target="_blank" rel="noopener noreferrer">
+        Portal do Colaborador
+      </a>
+
+      <a class="btn" href="https://protecaoevigilancia.com.br" target="_blank" rel="noopener noreferrer">
+        Site PS PROTEÇÃO
+      </a>
+
+      <a class="btn" href="https://www.protecaoevigilancia.com.br/blog" target="_blank" rel="noopener noreferrer">
+        Blog
+      </a>
+
+      <a class="btn" href="https://wa.me/5519978211077" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Ouvidoria
+      </a>
+
+      <a class="btn" href="https://protecaoplano.online" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+        Simulação Plano UNIMED
+      </a>
+
+      <a class="btn btn--special" href="#" aria-disabled="true"
+         onclick="return false;" style="cursor:default;">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        E-Book Gratuito — 10 Dicas para Proteger seu Patrimônio
+        <span class="badge">Em breve</span>
+      </a>
+
+    </nav>
+  </main>
+
+  <!-- ── Rodapé ───────────────────────────────────────────────────── -->
+  <footer>
+    &copy; 2026 PS Proteção Segurança &nbsp;·&nbsp;
+    <a href="#" aria-label="Política de Privacidade">Privacidade</a>
+  </footer>
+
+</body>
+</html>
